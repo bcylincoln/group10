@@ -63,25 +63,58 @@ function setup() {
 function mousePressed() {
 	print("got mouse press at "+ mouseX +" "+ mouseY);
 	var osc;
-	playing1 = true; // move this line once the ranges have been 
 	if (mouseX < 300 & mouseY < 50) {
     osc = osc1;
-		
-	}
+		playing1 = true;
+	} else if (mouseX < 300 & mouseY > 50 & mouseY < 100) {
+    osc = osc2;
+		playing6 = true;
+  } else if (mouseX < 300 & mouseY > 100 & mouseY < 150) {
+    osc = osc3;
+		playing6 = true;
+  } else if (mouseX < 300 & mouseY > 150 & mouseY < 200) {
+    osc = osc4;
+		playing6 = true;
+  } else if (mouseX < 300 & mouseY > 200 & mouseY < 250) {
+    osc = osc5;
+		playing6 = true;
+  } else if (mouseX < 300 & mouseY > 250) {
+    osc = osc6;
+		playing6 = true;
+  }
   if (osc) {
     osc.amp(0.5, 0.1);	//volume (0-1), time from 0 to volume
   }
 }
 
 function mouseReleased() {
-	print("got mouse released at "+ mouseX +" "+ mouseY);
-  	var osc;
-	osc = osc1;
-	playing1 = false;
-	if (osc) {
-    		osc.amp(0, 0.5);
+  print("got mouse released at "+ mouseX +" "+ mouseY);
+  var osc;
+	 	if (mouseX < 300 & mouseY < 50) {
+    osc = osc1;
+		playing1 = false;
+	} else if (mouseX < 300 & mouseY > 50 & mouseY < 100) {
+    osc = osc2;
+		playing6 = false;
+  } else if (mouseX < 300 & mouseY > 100 & mouseY < 150) {
+    osc = osc3;
+		playing6 = false;
+  } else if (mouseX < 300 & mouseY > 150 & mouseY < 200) {
+    osc = osc4;
+		playing6 = false;
+  } else if (mouseX < 300 & mouseY > 200 & mouseY < 250) {
+    osc = osc5;
+		playing6 = false;
+  } else if (mouseX < 300 & mouseY > 250) {
+    osc = osc6;
+		playing6 = false;
 	}
+	 if (osc) {
+    osc.amp(0, 0.5);
+	}
+
 }
+
 
 
 function draw(){
