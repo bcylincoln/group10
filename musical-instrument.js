@@ -191,10 +191,11 @@ function static_strings(){
 
 function redraw_back(){
     background(225,171,88);
-		fill('black');
-		rect(20,0,280,150);
-		fill(120);
-		ellipse(150,150,250);
+	background(225,171,88);
+	fill('black');
+	arc(322, 150, 600, 600, PI, 0);
+	fill(120);
+	ellipse(150,150,250);
 }
 
 function make_wave(string_y){
