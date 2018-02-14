@@ -13,7 +13,7 @@ var freq6 = 82.4;
 
 var osc1, osc2, osc3, osc4, osc5, osc6;
 
-var playing1, playing2, playing3, playing4,playing5,playing6 = false;
+var playing6 = false;
 
 function setup() {
    createCanvas(300,300);
@@ -65,7 +65,7 @@ function mousePressed() {
 	var osc;
 	if (mouseX < 300 & mouseY < 50) {
     osc = osc1;
-		playing1 = true;
+		playing6 = true;
 	} else if (mouseX < 300 & mouseY > 50 & mouseY < 100) {
     osc = osc2;
 		playing6 = true;
@@ -92,7 +92,7 @@ function mouseReleased() {
   var osc;
 	 	if (mouseX < 300 & mouseY < 50) {
     osc = osc1;
-		playing1 = false;
+		playing6 = false;
 	} else if (mouseX < 300 & mouseY > 50 & mouseY < 100) {
     osc = osc2;
 		playing6 = false;
@@ -119,7 +119,7 @@ function mouseReleased() {
 
 function draw(){
   stroke(255, 255, 255);
-  if (playing1){
+  if (playing6){
     redraw_back();
     
     //if strum string 1, draw a wave there and no where else
