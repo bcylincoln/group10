@@ -16,10 +16,10 @@ var osc1, osc2, osc3, osc4, osc5, osc6;
 var playing1, playing2, playing3, playing4,playing5,playing6 = false;
 
 function setup() {
-  createCanvas(300,300);
+   createCanvas(300,300);
 	background(225,171,88);
 	fill('black');
-	rect(20,00,280,150);
+	arc(322, 150, 600, 600, PI, 0);
 	fill(120);
 	ellipse(150,150,250);
   
