@@ -63,7 +63,9 @@ function setup() {
 function mousePressed() {
 	print("got mouse press at "+ mouseX +" "+ mouseY);
 	var osc;
-	if (mouseX < 300 & mouseY < 50) {
+  if (mouseY < 40|| mouseY > 270){
+    //do nothing
+  } else if (mouseX < 300 & mouseY < 50) {
     osc = osc1;
 		playing6 = true;
 	} else if (mouseX < 300 & mouseY > 50 & mouseY < 100) {
@@ -123,7 +125,9 @@ function draw(){
     redraw_back();
     
     //if strum string 1, draw a wave there and no where else
-    if(mouseY < 90 && mouseY >40){
+  if (mouseY < 40|| mouseY > 270){
+    //do nothing
+  }else if(mouseY < 90 && mouseY >40){
       line(0, 50, mouseX, 50);
   		line(0, 90, width, 90);
   		line(0, 130, width, 130);
