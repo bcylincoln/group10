@@ -16,12 +16,29 @@ var osc1, osc2, osc3, osc4, osc5, osc6;
 var playing6 = false;
 
 function setup() {
-   createCanvas(300,300);
-	background(225,171,88);
+  createCanvas(300,300);
+	if (key == '1') {
+	background(0);
+	fill('#FFE4C4');
+	ellipse(50,50,50);
+	ellipse(250,50,50);
+	ellipse(50,250,50);
+	ellipse(250,250,50);
+	rect(25,50,50,200);
+	rect(225,50,50,200);
+	for (i = 50; i<251; i = i+50) {
+		fill('#B8860B');
+		ellipse(50,i,20);
+		ellipse(250,i,20);
+	} 
+	}
+	else if (key == '1') {
+		background(225,171,88);
 	fill('black');
 	arc(322, 150, 600, 600, PI, 0);
 	fill(120);
 	ellipse(150,150,250);
+	}
   
   osc1 = new p5.Oscillator();
   osc1.setType('triangle');
@@ -117,7 +134,14 @@ function mouseReleased() {
 
 }
 
-
+function keyPressed() {
+	if (key == '1'){
+	}
+	if (key == '1'){
+	}
+	if (key == '1'){
+	}
+}
 
 function draw(){
   stroke(255, 255, 255);
@@ -194,12 +218,29 @@ function static_strings(){
 
 
 function redraw_back(){
-    background(225,171,88);
-	background(225,171,88);
+	if (key == '1') {
+	background(0);
+	fill('#FFE4C4');
+	ellipse(50,50,50);
+	ellipse(250,50,50);
+	ellipse(50,250,50);
+	ellipse(250,250,50);
+	rect(25,50,50,200);
+	rect(225,50,50,200);
+	for (i = 50; i<251; i = i+50) {
+		fill('#B8860B');
+		ellipse(50,i,20);
+		ellipse(250,i,20);
+	} 
+	}
+	else if (key == '2') {
+		background(225,171,88);
 	fill('black');
 	arc(322, 150, 600, 600, PI, 0);
 	fill(120);
 	ellipse(150,150,250);
+	}
+	
 }
 
 function make_wave(string_y){
