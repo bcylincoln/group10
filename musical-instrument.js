@@ -9,34 +9,37 @@
 var freqs = [82.4, 110, 147, 196, 247, 330];
 var notes = ['E', 'A', 'D', 'G', 'B', 'E'];  
 
+/* code for the guitar sound clips; can only uncomment if you upload all the clips
+function preload() {
+	acoustic_guitar = [ 
+		loadSound('string_1_e_clip.mp3'),
+		loadSound('string_2_b_clip.mp3'),
+  	loadSound('string_3_g_clip.mp3'),
+  	loadSound('string_4_d_clip.mp3'),
+    loadSound('string_5_a_clip.mp3'),
+    loadSound('string_6_e_clip.mp3')];
+}
+*/
+
+
 var oscillators = [];
 
 var playing = [];
 
 function setup() {
 	createCanvas(300, 300);
-	if (key == '1') {
-		background(0);
-		fill('#FFE4C4');
-		ellipse(50, 50, 50);
-		ellipse(250, 50, 50);
-		ellipse(50, 250, 50);
-		ellipse(250, 250, 50);
-		rect(25, 50, 50, 200);
-		rect(225, 50, 50, 200);
-		for (i = 50; i < 251; i = i + 50) {
-			fill('#B8860B');
-			ellipse(50, i, 20);
-			ellipse(250, i, 20);
-		}
-	} else if (key == '2') {
-		background(225, 171, 88);
-		fill('black');
-		arc(322, 150, 600, 600, PI, 0);
-		fill(120);
-		ellipse(150, 150, 250);
-	}
+	
+	//welcome screen
+  	textSize(20);
+	fill(110, 102, 150);
+  	text("An Online guitar by ", 70, 30); 
+  	text("Alvin, Jennifer & Rebecca ", 40, 50); 
+  	textSize(30);
+  	fill(20, 160, 200);
+  	text("Type '1' for electric", 30, height/2.5); 
+  	text("or '2' for acoustic!", 40, height/2.5 + 37); 
 
+	//set up osc
 	for (var i = 0; i < freqs.length; i++) {
 		var osc = new p5.Oscillator();
 		osc.setType('triangle');
@@ -53,30 +56,106 @@ function mousePressed() {
 	var osc;
 	if (mouseY < 40 || mouseY > 270) {
 		//do nothing
-	} else if (mouseX < 300 & mouseY < 50) {
-		osc = oscillators[0];
-		playing[0] = true;
-	} else if (mouseX < 300 & mouseY > 50 & mouseY < 100) {
-		osc = oscillators[1];
-		playing[1] = true;
-	} else if (mouseX < 300 & mouseY > 100 & mouseY < 150) {
-		osc = oscillators[2];
-		playing[2] = true;
-	} else if (mouseX < 300 & mouseY > 150 & mouseY < 200) {
-		osc = oscillators[3];
-		playing[3] = true;
-	} else if (mouseX < 300 & mouseY > 200 & mouseY < 250) {
-		osc = oscillators[4];
-		playing[4] = true;
-	} else if (mouseX < 300 & mouseY > 250) {
-		osc = oscillators[5];
-		playing[5] = true;
-	}
+	} 
+  
+  	if(current_guitar == "acoustic"){
+    		acoustic_play();
+  	}else if(current_guitar == "electric"){
+  		electric_play();
+  	}
 	if (osc) {
 		osc.amp(1, 0.1); //volume (0-1), time from 0 to volume
 	}
 }
 
+function acoustic_play(){
+	/* code below uses guitar audio clips, so it is commented out
+	if (mouseX < 300 & mouseY < 50) {
+		acoustic_guitar[0].play();
+    		playing[0] = true;
+	} 
+	if (mouseX < 300 & mouseY > 50 & mouseY < 100) {
+    		acoustic_guitar[1].play();
+    		playing[1] = true;
+  	}
+	if (mouseX < 300 & mouseY > 100 & mouseY < 150) {
+    		acoustic_guitar[2].play();
+		playing[2] = true;
+  	}
+	if (mouseX < 300 & mouseY > 150 & mouseY < 200) {
+    		acoustic_guitar[3].play();
+		playing[3] = true;
+  	} 
+	if (mouseX < 300 & mouseY > 200 & mouseY < 250) {
+    		acoustic_guitar[4].play();
+		playing[4] = true;
+  	} 
+	if (mouseX < 300 & mouseY > 250) {
+    		acoustic_guitar[5].play();
+		playing[5] = true;
+  	}
+	*/
+	
+	//the code below is used instead if there are no audio clips
+	if (mouseX < 300 & mouseY < 50) {
+		osc = oscillators[0];
+		playing[0] = true;
+	}
+	if (mouseX < 300 & mouseY > 50 & mouseY < 100) {
+		osc = oscillators[1];
+		playing[1] = true;
+	}
+	if (mouseX < 300 & mouseY > 100 & mouseY < 150) {
+		osc = oscillators[2];
+		playing[2] = true;
+	} 
+	if (mouseX < 300 & mouseY > 150 & mouseY < 200) {
+		osc = oscillators[3];
+		playing[3] = true;
+	}
+	if (mouseX < 300 & mouseY > 200 & mouseY < 250) {
+		osc = oscillators[4];
+		playing[4] = true;
+	} 
+	if (mouseX < 300 & mouseY > 250) {
+		osc = oscillators[5];
+		playing[5] = true;
+	}
+  	if (osc) {
+    		osc.amp(0.5, 0.1);	//volume (0-1), time from 0 to volume
+  	}
+}
+
+function electric_play(){
+  	if (mouseX < 300 & mouseY < 50) {
+		osc = oscillators[0];
+		playing[0] = true;
+	}
+	if (mouseX < 300 & mouseY > 50 & mouseY < 100) {
+		osc = oscillators[1];
+		playing[1] = true;
+	}
+	if (mouseX < 300 & mouseY > 100 & mouseY < 150) {
+		osc = oscillators[2];
+		playing[2] = true;
+	} 
+	if (mouseX < 300 & mouseY > 150 & mouseY < 200) {
+		osc = oscillators[3];
+		playing[3] = true;
+	}
+	if (mouseX < 300 & mouseY > 200 & mouseY < 250) {
+		osc = oscillators[4];
+		playing[4] = true;
+	} 
+	if (mouseX < 300 & mouseY > 250) {
+		osc = oscillators[5];
+		playing[5] = true;
+	}
+  	if (osc) {
+    		osc.amp(0.5, 0.1);	//volume (0-1), time from 0 to volume
+  	}
+  
+}
 function mouseReleased() {
 	print("got mouse released at " + mouseX + " " + mouseY);
 	var osc;
