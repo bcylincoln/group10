@@ -3,6 +3,7 @@
 //musical-instrument.js Do something new, interesting, and different. 
 //We made a guitar that will play a note based on the string that you click.
 //A wave is also displayed when you click near a string.
+//To use guitar clips, go to this link: http://alpha.editor.p5js.org/jenniferxiao/sketches/SJa-GlHwM 
 
 
 // E A D G B E 
